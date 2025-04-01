@@ -1,0 +1,400 @@
+/* ===================================================
+   Global Styles
+=================================================== */
+@import "variables.css";
+
+/* Reset & Base Styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: var(--font-primary);
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-base);
+  color: var(--text-color);
+  background-color: var(--background-color);
+  padding: var(--small-spacing);
+}
+
+/* ===================================================
+   Typography
+=================================================== */
+.heading {
+  font-family: var(--heading-font);
+  font-weight: bold;
+  color: var(--primary-color);
+  padding-bottom: var(--small-spacing);
+}
+
+h1, .heading-large {
+  font-size: var(--heading-font-size);
+}
+
+h2, .heading-medium {
+  font-size: var(--font-size-xl);
+}
+
+h3, .heading-small {
+  font-size: var(--font-size-lg);
+}
+
+p, .text {
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-base);
+  color: var(--text-color);
+  margin-bottom: var(--medium-spacing);
+}
+
+/* ===================================================
+   Header & Navigation
+=================================================== */
+.header {
+  background-color: var(--background-color);
+  padding: var(--medium-spacing);
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+/* Navigation Container */
+.nav-container {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+/* Logo Styling */
+.logo a {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: var(--text-color);
+  text-decoration: none;
+}
+
+/* Navigation Links */
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: var(--large-spacing);
+  list-style: none;
+}
+
+.nav__link {
+  color: var(--text-color);
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  transition: all 0.3s ease;
+  border-radius: 8px;
+  font-size: var(--nav-font-size);
+}
+
+.nav__link:hover {
+  background-color: var(--hover-bg);
+  color: var(--hover-text);
+  transform: scale(1.05);
+}
+
+.nav__link.active {
+  background-color: var(--primary-color);
+  color: var(--background-color);
+  font-weight: bold;
+}
+
+/* Hamburger Menu */
+.hamburger-menu {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+}
+
+.hamburger-lines {
+  width: 30px;
+  height: 3px;
+  background-color: var(--text-color);
+  margin: 5px 0;
+  transition: all 0.3s ease;
+}
+
+.hamburger-menu.active .hamburger-lines:nth-child(1) {
+  transform: translateY(8px) rotate(45deg);
+}
+
+.hamburger-menu.active .hamburger-lines:nth-child(2) {
+  opacity: 0;
+}
+
+.hamburger-menu.active .hamburger-lines:nth-child(3) {
+  transform: translateY(-8px) rotate(-45deg);
+}
+
+/* Responsive Navbar */
+@media (max-width: 768px) {
+  .hamburger-menu {
+    display: flex;
+  }
+
+  .nav-links {
+    display: none;
+    flex-direction: column;
+    position: absolute;
+    top: 60px;
+    left: 0;
+    right: 0;
+    background-color: var(--background-color);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    z-index: 10;
+  }
+
+  .nav-links.active {
+    display: flex;
+  }
+
+  .nav__link {
+    padding: 1rem;
+    width: 100%;
+    text-align: center;
+  }
+}
+
+/* ===================================================
+   Hero Section
+=================================================== */
+.hero-section {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+  color: white;
+  padding: 0 20px;
+}
+
+.hero-content {
+  max-width: 800px;
+}
+
+.hero-content h1 {
+  font-size: 3.5rem;
+  margin-bottom: 1rem;
+  font-weight: 700;
+  color: #fff; /* Make text brighter */
+  text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.5); /* Add stronger text shadow */
+}
+
+.hero-content p {
+  font-size: 1.2rem;
+  margin-bottom: 2rem;
+  line-height: 1.6;
+  color: rgba(255, 255, 255, 0.95); /* Improve contrast */
+}
+
+@media (max-width: 768px) {
+  .hero-content h1 {
+    font-size: 2.5rem;
+  }
+
+  .hero-content p {
+    font-size: 1rem;
+  }
+
+  .hero-section {
+    padding: 0 10px;
+  }
+}
+
+/* Animation */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero-content {
+  animation: fadeIn 1s ease-out;
+}
+
+/* ===================================================
+   CTA Button Styles
+=================================================== */
+button {
+  padding: 0.9rem 2rem;
+  border: none;
+  border-radius: 500px;
+  background: #66ff66;
+  color: ghostwhite;
+  font-size: 17px;
+  font-weight: 700;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+button:hover {
+  background: #000;
+  color: #fff;
+  transform: translateY(-3px);
+}
+
+/* ===================================================
+   Skills Section
+=================================================== */
+.skills-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: var(--medium-spacing);
+  padding: var(--large-spacing);
+}
+
+.skill-item {
+  background-color: var(--primary-bg);
+  padding: var(--medium-spacing);
+  border-radius: 8px;
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+
+.skill-item:hover {
+  transform: translateY(-5px);
+}
+
+/* ===================================================
+   Projects Section
+=================================================== */
+/* ===================================================
+   Projects Section
+=================================================== */
+.projects-section {
+  max-width: var(--max-width);
+  margin: 0 auto;
+  padding: var(--large-spacing);
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(var(--projects-columns), 1fr);
+  gap: var(--medium-spacing);
+  padding: var(--medium-spacing);
+}
+
+.project-card {
+  background: var(--background-color);
+  border-radius: var(--border-radius);
+  padding: var(--large-spacing);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: var(--hover-transition);
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+}
+
+.project-image {
+width: 100%;
+height: 200px;
+object-fit: cover;
+border-radius: 4px;
+margin-bottom: 1rem;
+}
+
+.project-title {
+color: var(--primary-color);
+margin-bottom: 0.5rem;
+}
+
+.project-description {
+color: var(--text-secondary);
+margin-bottom: 1rem;
+line-height: 1.6;
+}
+
+.project-link {
+  display: inline-block;
+  padding: 0.5rem 1rem;
+  background: var(--primary-color); /* Match button color with primary theme */
+  color: white;
+  text-decoration: none;
+  border-radius: 4px;
+  transition: background 0.3s ease;
+}
+
+.project-link:hover {
+  background: var(--secondary-color); /* Use secondary color for hover effect */
+  color: var(--hover-text); /* Adjust text color on hover */
+}
+/* projects-grid.css */
+.projects-container {
+display: grid;
+grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+gap: 2rem;
+padding: 2rem 0;
+}
+
+/* Style for project cards */
+.project-card {
+padding: 1.5rem;
+margin: 1rem;
+background: var(--background-light);
+border-radius: 8px;
+box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+transform: translateY(-5px);
+box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+}
+
+/* Project card image styling */
+.project-card img {
+width: 100%;
+height: 200px;
+object-fit: cover;
+border-radius: 4px;
+margin-bottom: 1rem;
+}
+
+/* Project card title */
+.project-card h3 {
+color: var(--primary-color);
+margin-bottom: 0.5rem;
+}
+
+/* Project card description */
+.project-card p {
+color: var(--text-secondary);
+line-height: 1.6;
+}
+
+
+/* ===================================================
+   Footer
+=================================================== */
+.footer {
+  background-color: var(--dark-color);
+  color: var(--light-color);
+  padding: var(--medium-spacing);
+  text-align: center;
+}
+
+.footer a {
+  color: var(--light-color);
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.footer a:hover {
+  color: var(--hover-color);
+}
+
+.copyright {
+  padding-top: var(--small-spacing);
+  font-size: var(--font-size-sm);
+}
