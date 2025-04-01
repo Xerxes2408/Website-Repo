@@ -1,0 +1,122 @@
+/* ==========================
+   Global CSS Variables
+   ========================== */
+
+/* Color Palette */
+:root {
+  /* 🎨 Primary Colors */
+  --primary-color: hsl(228, 45%, 30%); /* Deep Indigo Blue */
+  --secondary-color: hsl(204, 70%, 50%); /* Soft Teal Blue */
+  --accent-color: hsl(345, 80%, 55%); /* Rose Pink */
+
+  /* 🌫 Neutral Colors */
+  --background-color: hsl(0, 0%, 97%); /* Soft Misty White */
+  --text-color: hsl(230, 15%, 20%); /* Charcoal Gray */
+  --light-color: hsl(0, 0%, 90%); /* Light Gray */
+  --dark-color: hsl(230, 50%, 15%); /* Deep Navy Gray */
+
+  /* ✨ Additional UI Colors */
+  --hover-color: hsl(
+    228,
+    65%,
+    40%
+  ); /* Brighter Indigo for interactive elements */
+  --border-color: hsl(220, 10%, 75%); /* Soft Gray for subtle borders */
+
+  /* Spacing Variables */
+  /* --nav-gap: 2rem;
+   --container-padding: 2rem;
+   --nav-font-size: 1.1rem; */
+}
+
+/* Typography */
+:root {
+  --font-primary: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  --font-secondary: "Playfair Display", Georgia, serif;
+  --font-mono: "Courier New", Courier, monospace;
+
+  --body-font: var(--font-primary);
+  --heading-font: var(--font-secondary);
+
+  --font-size-base: 1rem;
+  --font-size-sm: 0.875rem;
+  --font-size-lg: 1.5rem;
+  --font-size-xl: 2rem;
+  --heading-font-size: 2.5rem;
+
+  --line-height-base: 1.6;
+}
+
+/* Spacing */
+:root {
+  --small-spacing: 0.5rem;
+  --medium-spacing: 1rem;
+  --large-spacing: 2rem;
+  --x-large-spacing: 3rem;
+
+  --container-padding: 20px;
+  --section-padding: 60px 0;
+  --gutter: 20px;
+}
+
+/* Transitions */
+:root {
+  --transition-fast: 0.3s ease-in-out;
+  --transition-slow: 0.6s ease-in-out;
+}
+
+/* Layout */
+:root {
+  --max-width: 1200px;
+  --projects-columns: 3;
+}
+/* ==========================
+   Typography Reusable Classes
+   ========================== */
+
+.heading {
+  font-family: var(--heading-font);
+  font-weight: bold;
+  color: var(--primary-color);
+  padding-bottom: var(--small-spacing);
+}
+
+h1,
+.heading-large {
+  font-size: var(--heading-font-size);
+}
+
+h2,
+.heading-medium {
+  font-size: var(--font-size-xl);
+}
+
+h3,
+.heading-small {
+  font-size: var(--font-size-lg);
+}
+
+p,
+.text {
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-base);
+  color: var(--text-color);
+  margin-bottom: var(--medium-spacing);
+}
+
+/* variables.css */
+:root {
+  --primary-color: #2c3e50;
+  --secondary-color: #3498db;
+  --background-color: #ecf0f1;
+  --text-color: #2c3e50;
+}
+
+/* Define CSS variables for projects grid and spacing */
+:root {
+  --projects-grid-gap: 2rem;
+  --projects-grid-columns: 1fr;
+  --projects-card-min-width: 300px;
+  --projects-card-max-width: 400px;
+  --projects-spacing: 1.5rem;
+}
