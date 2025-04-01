@@ -1,0 +1,297 @@
+/* Import Variables */
+@import "variables.css";
+
+/* CSS Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Base Styles */
+:root {
+    --font-primary: 'Poppins', sans-serif;
+    --font-size-base: 1.6rem;
+    --font-size-small: 1.4rem;
+    --font-size-large: 2rem;
+    --font-size-xlarge: 2.5rem;
+
+    --background-color: #f9f9f9;
+    --text-color: #333333;
+    --primary-color: #6c63ff;
+    --secondary-color: #ff6f61;
+    --hover-bg: #6c63ff;
+    --hover-text: #ffffff;
+    --border-color: #e0e0e0;
+
+    --primary-spacing: 2rem;
+    --medium-spacing: 1.5rem;
+    --small-spacing: 1rem;
+}
+
+html {
+    font-size: 62.5%; /* 1rem = 10px */
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: var(--font-primary);
+    font-size: var(--font-size-base);
+    line-height: 1.6;
+    color: var(--text-color);
+    background-color: var(--background-color);
+    padding: var(--small-spacing);
+}
+
+/* Dark Mode */
+@media (prefers-color-scheme: dark) {
+    :root {
+        --background-color: #1a1a1a;
+        --text-color: #ffffff;
+        --border-color: #333333;
+    }
+}
+
+/* Typography */
+h1, h2, h3 {
+    font-weight: 700;
+    line-height: 1.2;
+}
+
+h1 {
+    font-size: var(--font-size-xlarge);
+}
+
+h2 {
+    font-size: var(--font-size-large);
+}
+
+h3 {
+    font-size: var(--font-size-base);
+}
+
+p {
+    font-size: var(--font-size-base);
+    color: var(--text-color);
+}
+
+/* Utility Classes */
+.text-center {
+    text-align: center;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: var(--medium-spacing);
+}
+
+/* ===================================================
+   Header & Navigation
+=================================================== */
+
+.header {
+    background-color: var(--background-color);
+    padding: var(--medium-spacing);
+    border-bottom: 1px solid var(--border-color);
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 100;
+}
+
+.nav-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo a {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--primary-color);
+    text-decoration: none;
+}
+
+.nav-links {
+    display: flex;
+    gap: var(--medium-spacing);
+    list-style: none;
+}
+
+.nav__link {
+    font-size: var(--font-size-base);
+    color: var(--text-color);
+    text-decoration: none;
+    padding: 0.8rem 1.5rem;
+    transition: 0.3s ease;
+    border-radius: 8px;
+}
+
+.nav__link:hover {
+    background-color: var(--hover-bg);
+    color: var(--hover-text);
+}
+
+.nav__link.active {
+    background-color: var(--primary-color);
+    color: var(--background-color);
+}
+
+/* Responsive Navbar */
+@media (max-width: 768px) {
+    .nav-container {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .nav-links {
+        flex-direction: column;
+        gap: var(--small-spacing);
+        display: none;
+    }
+
+    .nav-links.show {
+        display: flex;
+    }
+
+    .hamburger-menu {
+        display: flex;
+        flex-direction: column;
+        gap: 5px;
+        cursor: pointer;
+    }
+
+    .hamburger-line {
+        width: 30px;
+        height: 3px;
+        background-color: var(--text-color);
+        transition: 0.3s ease;
+    }
+}
+
+/* ===================================================
+   Hero Section
+=================================================== */
+
+.hero-section {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+    color: #ffffff;
+    text-align: center;
+    padding: var(--small-spacing);
+}
+
+.hero-content h1 {
+    font-size: 4rem;
+    font-weight: 700;
+    margin-bottom: 1.5rem;
+}
+
+.hero-content p {
+    font-size: 1.8rem;
+    margin-bottom: 2rem;
+}
+
+.cta-buttons {
+    display: flex;
+    gap: var(--small-spacing);
+    justify-content: center;
+}
+
+.cta-button {
+    background-color: var(--primary-color);
+    color: #ffffff;
+    padding: 1rem 2rem;
+    border-radius: 8px;
+    transition: 0.3s ease;
+    cursor: pointer;
+    box-shadow: 0 5px 10px rgba(0,0,0,0.2);
+}
+
+.cta-button:hover {
+    background-color: var(--secondary-color);
+    transform: translateY(-3px);
+}
+
+/* ===================================================
+   About Section
+=================================================== */
+
+.skills-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--medium-spacing);
+    padding: var(--medium-spacing);
+}
+
+.skill-item {
+    background-color: #f4f4f4;
+    padding: var(--medium-spacing);
+    border-radius: 8px;
+    box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+    text-align: center;
+    transition: 0.3s ease;
+}
+
+.skill-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+}
+
+/* ===================================================
+   Projects Section
+=================================================== */
+
+.projects-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--medium-spacing);
+}
+
+.project-card {
+    background-color: #ffffff;
+    padding: var(--medium-spacing);
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+    transition: 0.3s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.2);
+}
+
+/* ===================================================
+   Footer Section
+=================================================== */
+
+.footer {
+    background-color: #222;
+    color: #fff;
+    padding: var(--medium-spacing);
+    text-align: center;
+}
+
+.social-links {
+    display: flex;
+    gap: var(--small-spacing);
+    justify-content: center;
+}
+
+.social-links a {
+    color: var(--hover-text);
+    text-decoration: none;
+    font-size: 1.5rem;
+}
+
+.social-links a:hover {
+    color: var(--secondary-color);
+}
+
+.copyright {
+    margin-top: var(--small-spacing);
+}
